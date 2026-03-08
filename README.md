@@ -28,3 +28,17 @@ minikube addons enable ingress
 # Check status
 minikube status
 kubectl get nodes
+
+Step 2: Create the Web API Application
+
+Create directory structure:
+
+mkdir -p web-api-project/{app-code-repo,helm-chart-repo,manifests-repo,terraform-repo}
+cd web-api-project
+
+
+
+
+
+
+
