@@ -38,33 +38,12 @@ cd web-api-project
 
 a)Create the Flask API (app-code-repo/app.py):
 
-from flask import Flask, jsonify
-import os
-import socket
-import datetime
+Step 3: Create Helm Chart
+Create Helm chart structure:
 
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return jsonify({
-        "message": "Hello, World!",
-        "hostname": socket.gethostname(),
-        "timestamp": datetime.datetime.now().isoformat(),
-        "version": os.environ.get('APP_VERSION', '1.0.0')
-    })
-
-@app.route('/health')
-def health():
-    return jsonify({"status": "healthy"}), 200
-
-@app.route('/ready')
-def ready():
-    return jsonify({"status": "ready"}), 200
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
-
-
+cd helm-chart-repo
+helm create web-api-chart
+# Remove default templates and create our own
+rm -rf web-api-chart/templates/*
 
 
